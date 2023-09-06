@@ -24,7 +24,6 @@ public class KafkaConfig {
 
 
 
-    @Bean
     public ProducerFactory<Integer,String> producerFactory(){
 
         return new DefaultKafkaProducerFactory<>(producerConfigs());
@@ -32,7 +31,6 @@ public class KafkaConfig {
     }
 
 
-    @Bean
     public Map<String,Object> producerConfigs(){
 
         Map<String,Object> props = new HashMap<>();
@@ -49,6 +47,6 @@ public class KafkaConfig {
 
     @Bean
     public KafkaTemplate<Integer,String> kafkaTemplate(){
-        return new KafkaTemplate<Integer,String>(producerFactory());
+        return new KafkaTemplate<>(producerFactory());
     }
 }
